@@ -57,18 +57,14 @@ for filename in os.listdir(input_path):
 
         image_clear = tf.io.decode_png(tf.io.read_file(filename_with_path), channels=3)
 
-        # Print original dimensions
-        original_dimensions = (image_clear.shape[1], image_clear.shape[0])
-        print(original_dimensions)
-
         # Apply fog
         image_clear, _ = datasetInit.preprocess_image_test(image_clear, 0)
         fig = plot_clear2fog_intensity_v2(generator_clear2fog, image_clear, INTENSITY, normalized_input=True)
 
         # Save Images
-        fig.set_size_inches(10, 10)
+        fig.set_size_inches(7, 7)
         fig_name_resized = os.path.join(output_path, "intensity_{:0.2f}_{}".format(INTENSITY, filename))
-        fig.savefig(fig_name_resized, bbox_inches='tight', pad_inches=0, dpi=200)
+        fig.savefig(fig_name_resized, bbox_inches='tight', pad_inches=0, dpi=500)
         plt.close(fig)
 
 
