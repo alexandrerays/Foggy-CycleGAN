@@ -66,5 +66,3 @@ for filename in os.listdir(input_path):
         fig_name_resized = os.path.join(output_path, "intensity_{:0.2f}_{}".format(INTENSITY, filename))
         fig.savefig(fig_name_resized, bbox_inches='tight', pad_inches=0, dpi=500)
         plt.close(fig)
-
-
