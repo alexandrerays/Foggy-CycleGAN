@@ -170,3 +170,28 @@ def plot_clear2fog_intensity(model_clear2fog, image_clear, intensity=0.5,
     if close_fig:
         plt.close(fig)
     return fig
+
+
+def plot_clear2fog_intensity_v2(model_clear2fog, image_clear, intensity=0.5,
+                             normalized_input=True, close_fig=False):
+    import matplotlib.pyplot as plt
+    import tensorflow as tf
+
+    original_intensity = intensity
+    if normalized_input:
+        intensity = intensity * 2 - 1
+    intensity = tf.expand_dims(tf.expand_dims(tf.convert_to_tensor(intensity), 0), 0)
+    prediction_clear2fog = model_clear2fog((tf.expand_dims(image_clear, 0), intensity))
+
+    fig = plt.figure(figsize=(20, 10))
+
+    plt.title('To Fog {:0.2}'.format(original_intensity))
+    to_display = prediction_clear2fog[0]
+    if normalized_input:
+        to_display = to_display * 0.5 + 0.5
+    plt.imshow(to_display)
+    plt.axis('off')
+
+    if close_fig:
+        plt.close(fig)
+    return fig

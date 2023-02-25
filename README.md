@@ -21,7 +21,15 @@ A version of pre-trained models used in the thesis can be found [here](https://d
 
 ## Notebook <a href="https://colab.research.google.com/github/ghaiszaher/Foggy-CycleGAN/blob/master/Foggy_CycleGAN.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 A Jupyter Notebook file <a href="https://github.com/ghaiszaher/Foggy-CycleGAN/blob/master/Foggy_CycleGAN.ipynb" target="_blank">Foggy_CycleGAN.ipynb</a> is available in the repository.
- 
+
+## Inference
+
+To run an inference for one single case:
+```
+python3 inference.py -c case1
+```
+
+
 
 ## Results
 <p align="center">

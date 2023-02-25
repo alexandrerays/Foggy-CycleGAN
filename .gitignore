@@ -9,5 +9,7 @@ image_logs/
 trainer_config.json
 dataset/
 intensity/
+.DS_Store
+runs/
 
 !.idea/dictionaries/
